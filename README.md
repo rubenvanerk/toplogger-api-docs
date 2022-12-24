@@ -96,3 +96,28 @@ The gym to get new/old climbs for.
 `climbs_type` <kbd>string</kbd>  
 The type of climbs to get stats for.  
 Options: `boulders`, `routes`
+
+## Ranked gym users
+
+<kbd>GET</kbd> `gyms/{gym}/ranked_gym_users`  
+Returns the ranked gym users for a gym.
+
+[Example](https://hopp.sh/r/0AtgTZ5QFcK6)
+
+### Path parameters
+
+`gym` <kbd>int</kbd>  **required**  
+The gym to get ranked gym users for.
+
+### Query parameters
+
+`climbs_type` <kbd>string</kbd> **required**  
+The type of climbs to get stats for.  
+Options: `boulders`, `routes`
+
+`ranking_type` <kbd>string</kbd> **required**  
+The type of ranking to get.  
+Options: `grade`, `count`
+
+`items_per_page` <kbd>int</kbd>  
+The number of items per page.
