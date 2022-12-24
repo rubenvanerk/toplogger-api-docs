@@ -36,7 +36,6 @@ The user to get stats for.
 
 `json_params` <kbd>json</kbd> _requires authentication_  
 Example: `{"includes":[{"gym":["holds","walls","setters"]},"setters"]}`
----
 
 ## User stats
 
@@ -59,8 +58,6 @@ The gym to get stats for. Optional but can be very slow without it.
 The type of climbs to get stats for.  
 Options: `boulders`, `routes`
 
----
-
 ## Strength history
 
 <kbd>GET</kbd> `users/{user}/strength_history`  
@@ -81,8 +78,6 @@ Options: `boulders`, `routes`
 
 `offset` <kbd>int</kbd>  
 Unknown.
-
----
 
 ## New & old
 
