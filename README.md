@@ -257,3 +257,18 @@ Example:
   ]
 }
 ```
+
+## Climb stats
+
+<kbd>GET</kbd> `gyms/{gym}/climbs/{climb}/stats`  
+Returns stats for a climb: community grades, opinions and toppers.
+
+[Example](https://hopp.sh/r/savED6QKPbML)
+
+### Path parameters
+
+`gym` <kbd>int</kbd>  **required**  
+The gym to get climbs for.
+
+`climb` <kbd>int</kbd>  **required**  
+The climb to get stats for.
