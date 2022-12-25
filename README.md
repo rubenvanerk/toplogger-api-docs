@@ -208,3 +208,52 @@ Example:
 `serialize_checks` <kbd>boolean</kbd>  
 Adds a `checks` field to each ascend. 2 checks is a flash, 1 check is a redpoint. 
 Settings this to `false` does not seem to have any effect.
+
+## Climbs
+
+<kbd>GET</kbd> `gyms/{gym}/climbs`  
+Returns climbs for a gym.
+
+[Example](https://hopp.sh/r/0PlGAIlhFQnN)
+
+### Path parameters
+
+`gym` <kbd>int</kbd>  **required**  
+The gym to get climbs for.
+
+### Query parameters
+
+`json_params` <kbd>json</kbd>  
+Example: 
+```json
+{
+  "filters": {
+    "deleted": false,
+    "live": true
+  }
+}
+```
+
+## Groups
+
+<kbd>GET</kbd> `groups`  
+Returns climb groups (circuits).
+
+[Example](https://hopp.sh/r/iReTdD9uWlE8)
+
+### Query parameters
+
+`json_params` <kbd>json</kbd>  
+Example: 
+```json
+{
+  "filters": {
+    "gym_id": 8,
+    "score_system": "none",
+    "live": true
+  },
+  "includes": [
+    "climb_groups"
+  ]
+}
+```
