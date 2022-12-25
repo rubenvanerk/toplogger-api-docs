@@ -20,6 +20,36 @@ You can also get a token by posting to `users/sign_in`. The body should be a JSO
 }
 ```
 
+## JSON params
+
+Some endpoints accept JSON params. These are sent as a GET parameter named `json_params`. 
+The following options are available (not all are available for all endpoints):
+```json
+{
+  "filters": {
+    "used": true,
+    "user": {
+      "uid": "7163205870"
+    },
+    "climb": {
+      "gym_id": 1337,
+      "deleted": false,
+      "live": true
+    }
+  },
+  "includes": [
+    {
+      "gym": [
+        "holds",
+        "walls",
+        "setters"
+      ]
+    },
+    "setters"
+  ]
+}
+```
+
 ## User
 
 <kbd>GET</kbd> `users/{user}`  
@@ -34,8 +64,22 @@ The user to get stats for.
 
 ### Query parameters
 
-`json_params` <kbd>json</kbd> _requires authentication_  
-Example: `{"includes":[{"gym":["holds","walls","setters"]},"setters"]}`
+`json_params` <kbd>json</kbd> _requires [authentication](#authentication)_  
+Example: 
+```json
+{
+  "includes": [
+    {
+      "gym": [
+        "holds",
+        "walls",
+        "setters"
+      ]
+    },
+    "setters"
+  ]
+}
+```
 
 ## User stats
 
@@ -121,3 +165,46 @@ Options: `grade`, `count`
 
 `items_per_page` <kbd>int</kbd>  
 The number of items per page.
+
+## Opinions
+
+<kbd>GET</kbd> `opinions`  
+Returns user opinions (ratings).
+
+[Example](https://hopp.sh/r/H69vRYMLw6Sf)
+
+### Query parameters
+
+`json_params` <kbd>json</kbd>  
+Example: `{"filters":{"used":true,"user":{"uid":"7163205870"},"climb":{"gym_id":8,"deleted":false,"live":true}}}`
+
+## Ascends
+
+<kbd>GET</kbd> `ascends`
+Returns ascends.
+
+[Example](https://hopp.sh/r/A6ERCeGcv9Bh)
+
+### Query parameters
+
+`json_params` <kbd>json</kbd> **partially required**  
+Example: 
+```json
+{
+  "filters": {
+    "used": true,
+    "user": {
+      "uid": "7163205870" // required
+    },
+    "climb": {
+      "gym_id": 8,
+      "deleted": false,
+      "live": true
+    }
+  }
+}
+```
+
+`serialize_checks` <kbd>boolean</kbd>  
+Adds a `checks` field to each ascend. 2 checks is a flash, 1 check is a redpoint. 
+Settings this to `false` does not seem to have any effect.
